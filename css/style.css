@@ -1,6 +1,6 @@
-.hidden {
+/* .hidden {
     display: none;
-}
+} */
 
 .gameBoard{
     margin: 0 auto;
@@ -11,6 +11,18 @@
     flex-wrap: wrap;
     flex-direction: row;
     padding: 5px 0;
-    width: 1300px;
+    width: 950px;
     height: 550px;
+}
+
+#card {
+    display: flex;
+    border: 2px solid black;
+    width: 150px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 28pt;
 }
