@@ -1,0 +1,16 @@
+.hidden {
+    display: none;
+}
+
+.gameBoard{
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 5px 0;
+    width: 1300px;
+    height: 550px;
+}
