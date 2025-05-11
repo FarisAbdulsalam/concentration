@@ -14,3 +14,17 @@
 // 4. a function that flips the cards after they're clicked
 
 // 5. a function that compares two cards and adjusts attempts and score accordingly
+
+/*-------------- Constants -------------*/
+const emojiArr = ["🐏", "🐏", "💕", "💕", "😊", "😊", "🐈", "🐈"]
+const numOfCards = 8;
+const winningScore = 4;
+
+/*---------- Variables (state) ---------*/
+let gameState = false;
+let points = 0;
+let attempts = 6;
+let cardOne = '';
+let cardTwo = '';
+
+/*----- Cached Element References  -----*/
