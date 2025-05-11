@@ -1,6 +1,10 @@
-/* .hidden {
+.hidden {
     display: none;
-} */
+}
+
+.show {
+    display: block;
+}
 
 .gameBoard{
     margin: 0 auto;

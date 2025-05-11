@@ -35,3 +35,20 @@ const startGameElement = document.querySelector('#startButton');
 const resetGameElement = document.querySelector('#resetButton')
 const winMessage = document.getElementById('winMessage');
 const failMessage = document.getElementById('failMessage');
+
+/*-------------- Functions -------------*/
+const initialize = () => {
+    if(gameState === false){
+        points = 0;
+        attempts = 6;
+        cardOne = '';
+        cardTwo = '';
+        moves.classList.remove('hidden');
+        score.classList.remove('hidden');
+        moves.classList.add('show');
+        score.classList.add('show');
+    }
+}
+
+/*----------- Event Listeners ----------*/
+startGameElement.addEventListener('click', initialize);
