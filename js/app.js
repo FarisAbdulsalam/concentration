@@ -28,3 +28,10 @@ let cardOne = '';
 let cardTwo = '';
 
 /*----- Cached Element References  -----*/
+const board = document.getElementById('board');
+const moves = document.getElementById('moves');
+const score = document.getElementById('score');
+const startGameElement = document.querySelector('#startButton');
+const resetGameElement = document.querySelector('#resetButton')
+const winMessage = document.getElementById('winMessage');
+const failMessage = document.getElementById('failMessage');
