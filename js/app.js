@@ -76,6 +76,10 @@ const initialize = () => {
         moves.innerHTML = `${attempts}/${maxAttempts} attempts remaining.`
         score.innerHTML = `${points}/${winningScore} points scored.`
         generateBoard();
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('click', /* flip function goes here */)
+        })
     }
 }
 
