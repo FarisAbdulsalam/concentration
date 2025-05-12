@@ -71,7 +71,11 @@ const play = (emoji) => {
         cardOne = emoji.target;
         emoji.target.classList.add('cardFront')
         console.log(cardOne);
-    } 
+    } else if(cardTwo === ''){
+        cardTwo = emoji.target;
+        emoji.target.classList.add('cardFront');
+        console.log(cardTwo);
+    }
 }
 
 const initialize = () => {
