@@ -19,6 +19,7 @@
 const emojiArr = ["🐏", "💕", "😊", "🐈"]
 const numOfCards = 8;
 const winningScore = 4;
+const maxAttempts = 6;
 
 /*---------- Variables (state) ---------*/
 let gameState = false;
@@ -37,37 +38,13 @@ const winMessage = document.getElementById('winMessage');
 const failMessage = document.getElementById('failMessage');
 
 /*-------------- Functions -------------*/
-const initialize = () => {
-    if(gameState === false){
-        points = 0;
-        attempts = 6;
-        cardOne = '';
-        cardTwo = '';
-        gameState = true;
-        moves.classList.remove('hidden');
-        score.classList.remove('hidden');
-        moves.classList.add('show');
-        score.classList.add('show');
-        console.log(emojiArr);
-        generateBoard();
-    }
-}
-
-const reset = () => {
-    if(gameState === true){
-        gameState = false;
-        console.log("reset")
-        initialize();
-    }
-}
-
 const shuffle = (arr) => {
     return arr.sort(() => Math.random() - 0.5);
 }
 
 const generateBoard = () => {
     let cardArr = [];
-    for(let i = 0; i < emojiArr.length; i++){
+    for (let i = 0; i < emojiArr.length; i++) {
         let card1 = document.createElement('div');
         let card2 = document.createElement('div');
         card1.textContent = emojiArr[i];
@@ -83,6 +60,31 @@ const generateBoard = () => {
     shuffled.forEach(card => {
         board.appendChild(card)
     })
+}
+
+const initialize = () => {
+    if (gameState === false) {
+        points = 0;
+        attempts = 6;
+        cardOne = '';
+        cardTwo = '';
+        gameState = true;
+        moves.classList.remove('hidden');
+        score.classList.remove('hidden');
+        moves.classList.add('show');
+        score.classList.add('show');
+        moves.innerHTML = `${attempts}/${maxAttempts} attempts remaining.`
+        score.innerHTML = `${points}/${winningScore} points scored.`
+        generateBoard();
+    }
+}
+
+const reset = () => {
+    if (gameState === true) {
+        gameState = false;
+        board.innerHTML = '';
+        initialize();
+    }
 }
 
 /*----------- Event Listeners ----------*/
