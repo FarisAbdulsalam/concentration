@@ -35,5 +35,15 @@
 }
 
 .cardBack {
-    color: gray;
+    background-color: black;
+    color: transparent;
+}
+
+.cardFront {
+    background-color: white;
+    color: black;
+}
+
+button {
+    cursor: pointer;
 }
