@@ -43,12 +43,23 @@ const initialize = () => {
         attempts = 6;
         cardOne = '';
         cardTwo = '';
+        gameState = true;
         moves.classList.remove('hidden');
         score.classList.remove('hidden');
         moves.classList.add('show');
         score.classList.add('show');
+        console.log("game started")
+    }
+}
+
+const reset = () => {
+    if(gameState === true){
+        gameState = false;
+        console.log("reset")
+        initialize();
     }
 }
 
 /*----------- Event Listeners ----------*/
 startGameElement.addEventListener('click', initialize);
+resetGameElement.addEventListener('click', reset);
