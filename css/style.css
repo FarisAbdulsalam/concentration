@@ -6,27 +6,34 @@
     display: block;
 }
 
-.gameBoard{
+#board{
     margin: 0 auto;
     margin-top: 50px;
     border: 2px solid black;
     border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     padding: 5px 0;
     width: 950px;
-    height: 550px;
+    height: 570px;
 }
 
-#card {
+.card {
     display: flex;
     border: 2px solid black;
     width: 150px;
+    height: 200px;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     font-size: 28pt;
+    cursor: pointer;
+}
+
+.cardBack {
+    color: gray;
 }

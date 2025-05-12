@@ -16,7 +16,7 @@
 // 5. a function that compares two cards and adjusts attempts and score accordingly
 
 /*-------------- Constants -------------*/
-const emojiArr = ["🐏", "🐏", "💕", "💕", "😊", "😊", "🐈", "🐈"]
+const emojiArr = ["🐏", "💕", "😊", "🐈"]
 const numOfCards = 8;
 const winningScore = 4;
 
@@ -48,8 +48,8 @@ const initialize = () => {
         score.classList.remove('hidden');
         moves.classList.add('show');
         score.classList.add('show');
-        shuffle(emojiArr);
         console.log(emojiArr);
+        generateBoard();
     }
 }
 
@@ -63,6 +63,26 @@ const reset = () => {
 
 const shuffle = (arr) => {
     return arr.sort(() => Math.random() - 0.5);
+}
+
+const generateBoard = () => {
+    let cardArr = [];
+    for(let i = 0; i < emojiArr.length; i++){
+        let card1 = document.createElement('div');
+        let card2 = document.createElement('div');
+        card1.textContent = emojiArr[i];
+        card1.classList.add('card');
+        card1.classList.add('cardBack');
+        card2.textContent = emojiArr[i];
+        card2.classList.add('card');
+        card2.classList.add('cardBack');
+        cardArr.push(card1);
+        cardArr.push(card2);
+    }
+    let shuffled = shuffle(cardArr);
+    shuffled.forEach(card => {
+        board.appendChild(card)
+    })
 }
 
 /*----------- Event Listeners ----------*/
