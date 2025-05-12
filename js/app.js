@@ -62,6 +62,18 @@ const generateBoard = () => {
     })
 }
 
+const testFunction = () => {
+    console.log("woohoo click works")
+}
+
+const play = (emoji) => {
+    if(cardOne === ''){
+        cardOne = emoji.target;
+        emoji.target.classList.add('cardFront')
+        console.log(cardOne);
+    } 
+}
+
 const initialize = () => {
     if (gameState === false) {
         points = 0;
@@ -78,7 +90,7 @@ const initialize = () => {
         generateBoard();
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
-            card.addEventListener('click', /* flip function goes here */)
+            card.addEventListener('click', play)
         })
     }
 }
