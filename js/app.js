@@ -81,6 +81,19 @@ const play = (emoji) => {
     }
 }
 
+const compare = (firstCard, secondCard) => {
+    if(firstCard.textContent === secondCard.textContent){
+        points++;
+        if(points >= winningScore){
+            winMessage.classList.remove('hidden');
+            winMessage.classList.add('show');
+            gameState = false;
+        }
+        cardOne = '';
+        cardTwo = '';
+    }
+}
+
 const initialize = () => {
     if (gameState === false) {
         points = 0;
