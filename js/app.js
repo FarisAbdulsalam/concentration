@@ -67,14 +67,17 @@ const testFunction = () => {
 }
 
 const play = (emoji) => {
+    if(cardOne === emoji.target || cardTwo === emoji.target){
+        return;
+    }
     if(cardOne === ''){
         cardOne = emoji.target;
         emoji.target.classList.add('cardFront')
-        console.log(cardOne);
+        console.log('card one: ', cardOne);
     } else if(cardTwo === ''){
         cardTwo = emoji.target;
         emoji.target.classList.add('cardFront');
-        console.log(cardTwo);
+        console.log('card two: ', cardTwo);
     }
 }
 
