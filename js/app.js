@@ -48,7 +48,8 @@ const initialize = () => {
         score.classList.remove('hidden');
         moves.classList.add('show');
         score.classList.add('show');
-        console.log("game started")
+        shuffle(emojiArr);
+        console.log(emojiArr);
     }
 }
 
@@ -58,6 +59,10 @@ const reset = () => {
         console.log("reset")
         initialize();
     }
+}
+
+const shuffle = (arr) => {
+    return arr.sort(() => Math.random() - 0.5);
 }
 
 /*----------- Event Listeners ----------*/
