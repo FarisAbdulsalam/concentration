@@ -62,10 +62,6 @@ const generateBoard = () => {
     })
 }
 
-const testFunction = () => {
-    console.log("woohoo click works")
-}
-
 const play = (emoji) => {
     if(cardOne === emoji.target || cardTwo === emoji.target){
         return;
