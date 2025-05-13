@@ -91,13 +91,6 @@ const compare = (firstCard, secondCard) => {
         }
         cardOne = '';
         cardTwo = '';
-    } else {
-        attempts--;
-        if(attempts === 0){
-            failMessage.classList.remove('hidden');
-            failMessage.classList.add('show');
-            gameState = false;
-        }
     }
 }
 
