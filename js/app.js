@@ -63,14 +63,14 @@ const generateBoard = () => {
 }
 
 const play = (emoji) => {
-    if(cardOne === emoji.target || cardTwo === emoji.target){
+    if (cardOne === emoji.target || cardTwo === emoji.target) {
         return;
     }
-    if(cardOne === ''){
+    if (cardOne === '') {
         cardOne = emoji.target;
         emoji.target.classList.add('cardFront')
         console.log('card one: ', cardOne);
-    } else if(cardTwo === ''){
+    } else if (cardTwo === '') {
         cardTwo = emoji.target;
         emoji.target.classList.add('cardFront');
         console.log('card two: ', cardTwo);
@@ -78,15 +78,22 @@ const play = (emoji) => {
 }
 
 const compare = (firstCard, secondCard) => {
-    if(firstCard.textContent === secondCard.textContent){
+    if (firstCard.textContent === secondCard.textContent) {
         points++;
-        if(points >= winningScore){
+        if (points >= winningScore) {
             winMessage.classList.remove('hidden');
             winMessage.classList.add('show');
             gameState = false;
         }
         cardOne = '';
         cardTwo = '';
+    } else {
+        attempts--;
+        if (attempts === 0) {
+            failMessage.classList.remove('hidden');
+            failMessage.classList.add('show');
+            gameState = false;
+        }
     }
 }
 
