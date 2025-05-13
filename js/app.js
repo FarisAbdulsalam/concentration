@@ -128,11 +128,9 @@ const initialize = () => {
 }
 
 const reset = () => {
-    if (gameState === true) {
-        gameState = false;
-        board.innerHTML = '';
-        initialize();
-    }
+    gameState = false;
+    board.innerHTML = '';
+    initialize();
 }
 
 /*----------- Event Listeners ----------*/
