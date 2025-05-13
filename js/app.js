@@ -74,7 +74,10 @@ const play = (emoji) => {
         cardTwo = emoji.target;
         emoji.target.classList.add('cardFront');
         console.log('card two: ', cardTwo);
+        compare(cardOne, cardTwo);
     }
+    moves.innerHTML = `${attempts}/${maxAttempts} moves remaining`;
+    score.innerHTML = `Score: ${points}/${winningScore}`;
 }
 
 const compare = (firstCard, secondCard) => {
@@ -94,6 +97,12 @@ const compare = (firstCard, secondCard) => {
             failMessage.classList.add('show');
             gameState = false;
         }
+        setTimeout(() => {
+            cardTwo.classList.remove('cardFront');
+            cardOne.classList.remove('cardFront');
+            cardOne = '';
+            cardTwo = '';
+        }, 1000);
     }
 }
 
