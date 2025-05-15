@@ -1,3 +1,7 @@
+body {
+    color: white;
+}
+
 .hidden {
     display: none;
 }
@@ -6,10 +10,10 @@
     display: block;
 }
 
-#board{
+#board {
     margin: 0 auto;
     margin-top: 50px;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
@@ -35,8 +39,17 @@
 }
 
 .cardBack {
-    background-color: black;
+    background-image: url(https://i.imgur.com/lbHuBDP.png);
+    background-color: white;
     color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 234, 0.9);
 }
 
 .cardFront {

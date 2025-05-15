@@ -31,11 +31,11 @@ const generateBoard = () => {
         let card1 = document.createElement('div');
         let card2 = document.createElement('div');
         card1.textContent = emojiArr[i];
-        card1.classList.add('card');
-        card1.classList.add('cardBack');
+        card1.classList.toggle('card');
+        card1.classList.toggle('cardBack');
         card2.textContent = emojiArr[i];
-        card2.classList.add('card');
-        card2.classList.add('cardBack');
+        card2.classList.toggle('card');
+        card2.classList.toggle('cardBack');
         cardArr.push(card1);
         cardArr.push(card2);
     }
@@ -52,9 +52,11 @@ const play = (emoji) => {
     if (cardOne === '') {
         cardOne = emoji.target;
         emoji.target.classList.add('cardFront')
+        emoji.target.classList.toggle('cardBack');
     } else if (cardTwo === '') {
         cardTwo = emoji.target;
         emoji.target.classList.add('cardFront');
+        emoji.target.classList.toggle('cardBack');
         compare(cardOne, cardTwo);
     }
     moves.innerHTML = `${attempts}/${maxAttempts} moves remaining`;
@@ -79,8 +81,10 @@ const compare = (firstCard, secondCard) => {
             gameState = false;
         }
         setTimeout(() => {
-            cardTwo.classList.remove('cardFront');
-            cardOne.classList.remove('cardFront');
+            cardTwo.classList.toggle('cardFront');
+            cardOne.classList.toggle('cardFront');
+            cardTwo.classList.toggle('cardBack');
+            cardOne.classList.toggle('cardBack');
             cardOne = '';
             cardTwo = '';
         }, 1000);
@@ -111,6 +115,10 @@ const initialize = () => {
 const reset = () => {
     gameState = false;
     board.innerHTML = '';
+    winMessage.classList.remove('show');
+    failMessage.classList.remove('show');
+    winMessage.classList.add('hidden');
+    failMessage.classList.add('hidden');
     initialize();
 }
 
