@@ -1,7 +1,5 @@
 /*-------------- Constants -------------*/
-const emojiArr = ["🐏", "💕", "😊", "🐈"];
 const imageArr = ["https://i.imgur.com/y49U8G2.png", "https://i.imgur.com/ChBnc5w.png", "https://i.imgur.com/NicESuX.png", "https://i.imgur.com/shgENDn.png"]
-const numOfCards = 8;
 const winningScore = 4;
 const maxAttempts = 6;
 
@@ -31,10 +29,8 @@ const generateBoard = () => {
     for (let i = 0; i < imageArr.length; i++) {
         let card1 = document.createElement('div');
         let card2 = document.createElement('div');
-        // card1.textContent = emojiArr[i];
         card1.classList.toggle('card');
         card1.classList.toggle('cardBack');
-        // card2.textContent = emojiArr[i];
         card2.classList.toggle('card');
         card2.classList.toggle('cardBack');
         card1.setAttribute("data-image", imageArr[i]);
