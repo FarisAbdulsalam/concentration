@@ -46,6 +46,9 @@ const generateBoard = () => {
 }
 
 const play = (emoji) => {
+    if (attempts <= 0 || !gameState) {
+        return;
+    }
     if (cardOne === emoji.target || cardTwo === emoji.target) {
         return;
     }
