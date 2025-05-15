@@ -44,22 +44,22 @@ const generateBoard = () => {
     })
 }
 
-const play = (emoji) => {
+const play = (card) => {
     if (attempts <= 0 || !gameState) {
         return;
     }
-    if (cardOne === emoji.target || cardTwo === emoji.target) {
+    if (cardOne === card.target || cardTwo === card.target) {
         return;
     }
     if (cardOne === '') {
-        cardOne = emoji.target;
+        cardOne = card.target;
         cardOne.classList.add('cardFront');
         cardOne.classList.toggle('cardBack');
         cardOne.style.backgroundImage = `url(${cardOne.getAttribute("data-image")})`;
     } else if (cardTwo === '') {
-        cardTwo = emoji.target;
-        emoji.target.classList.add('cardFront');
-        emoji.target.classList.toggle('cardBack');
+        cardTwo = card.target;
+        cardTwo.classList.add('cardFront');
+        cardTwo.classList.toggle('cardBack');
         cardTwo.style.backgroundImage = `url(${cardTwo.getAttribute("data-image")})`;
         compare(cardOne, cardTwo);
     }
