@@ -1,5 +1,6 @@
 /*-------------- Constants -------------*/
-const emojiArr = ["🐏", "💕", "😊", "🐈"]
+const emojiArr = ["🐏", "💕", "😊", "🐈"];
+const imageArr = ["https://i.imgur.com/y49U8G2.png", "https://i.imgur.com/ChBnc5w.png", "https://i.imgur.com/NicESuX.png", "https://i.imgur.com/shgENDn.png"]
 const numOfCards = 8;
 const winningScore = 4;
 const maxAttempts = 6;
@@ -27,15 +28,17 @@ const shuffle = (arr) => {
 
 const generateBoard = () => {
     let cardArr = [];
-    for (let i = 0; i < emojiArr.length; i++) {
+    for (let i = 0; i < imageArr.length; i++) {
         let card1 = document.createElement('div');
         let card2 = document.createElement('div');
-        card1.textContent = emojiArr[i];
+        // card1.textContent = emojiArr[i];
         card1.classList.toggle('card');
         card1.classList.toggle('cardBack');
-        card2.textContent = emojiArr[i];
+        // card2.textContent = emojiArr[i];
         card2.classList.toggle('card');
         card2.classList.toggle('cardBack');
+        card1.setAttribute("data-image", imageArr[i]);
+        card2.setAttribute("data-image", imageArr[i]);
         cardArr.push(card1);
         cardArr.push(card2);
     }
@@ -54,12 +57,14 @@ const play = (emoji) => {
     }
     if (cardOne === '') {
         cardOne = emoji.target;
-        emoji.target.classList.add('cardFront')
-        emoji.target.classList.toggle('cardBack');
+        cardOne.classList.add('cardFront');
+        cardOne.classList.toggle('cardBack');
+        cardOne.style.backgroundImage = `url(${cardOne.getAttribute("data-image")})`;
     } else if (cardTwo === '') {
         cardTwo = emoji.target;
         emoji.target.classList.add('cardFront');
         emoji.target.classList.toggle('cardBack');
+        cardTwo.style.backgroundImage = `url(${cardTwo.getAttribute("data-image")})`;
         compare(cardOne, cardTwo);
     }
     moves.innerHTML = `${attempts}/${maxAttempts} moves remaining`;
@@ -67,7 +72,7 @@ const play = (emoji) => {
 }
 
 const compare = (firstCard, secondCard) => {
-    if (firstCard.textContent === secondCard.textContent) {
+    if (firstCard.getAttribute("data-image") === secondCard.getAttribute("data-image")) {
         points++;
         if (points >= winningScore) {
             winMessage.classList.remove('hidden');
@@ -88,11 +93,14 @@ const compare = (firstCard, secondCard) => {
             cardOne.classList.toggle('cardFront');
             cardTwo.classList.toggle('cardBack');
             cardOne.classList.toggle('cardBack');
+            cardTwo.style.backgroundImage = "";
+            cardOne.style.backgroundImage = "";
             cardOne = '';
             cardTwo = '';
         }, 1000);
     }
-}
+};
+
 
 const initialize = () => {
     if (gameState === false) {

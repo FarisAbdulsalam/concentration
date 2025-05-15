@@ -40,7 +40,6 @@ body {
 
 .cardBack {
     background-image: url(https://i.imgur.com/lbHuBDP.png);
-    background-color: white;
     color: transparent;
     background-size: cover;
     background-position: center;
@@ -53,10 +52,24 @@ body {
 }
 
 .cardFront {
-    background-color: white;
-    color: black;
+    background-size: cover;
+    background-position: center;
 }
 
 button {
     cursor: pointer;
+}
+
+#failMessage {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}
+
+#winMessage {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
 }
