@@ -70,6 +70,8 @@ const play = (card) => {
 const compare = (firstCard, secondCard) => {
     if (firstCard.getAttribute("data-image") === secondCard.getAttribute("data-image")) {
         points++;
+        firstCard.style.pointerEvents = "none";
+        secondCard.style.pointerEvents = "none";
         if (points >= winningScore) {
             winMessage.classList.remove('hidden');
             winMessage.classList.add('show');
