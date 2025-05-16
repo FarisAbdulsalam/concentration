@@ -2,12 +2,12 @@ body {
     color: white;
 }
 
-.hidden {
-    display: none;
-}
-
 .show {
     display: block;
+}
+
+.hidden {
+    display: none;
 }
 
 #board {
@@ -56,8 +56,13 @@ body {
     background-position: center;
 }
 
+
 button {
-    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
 #failMessage {
@@ -72,4 +77,19 @@ button {
     font-size: 24px;
     font-weight: bold;
     color: red;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    width: 950px;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.blur {
+    filter: blur(5px);
+    pointer-events: none;
 }

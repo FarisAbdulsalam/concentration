@@ -15,7 +15,6 @@ const board = document.getElementById('board');
 const moves = document.getElementById('moves');
 const score = document.getElementById('score');
 const startGameElement = document.querySelector('#startButton');
-const resetGameElement = document.querySelector('#resetButton')
 const winMessage = document.getElementById('winMessage');
 const failMessage = document.getElementById('failMessage');
 
@@ -75,7 +74,13 @@ const compare = (firstCard, secondCard) => {
         if (points >= winningScore) {
             winMessage.classList.remove('hidden');
             winMessage.classList.add('show');
+            moves.classList.remove('show');
+            moves.classList.add('hidden');
+            score.classList.remove('show');
+            score.classList.add('hidden');
+            startGameElement.style.display = "block";
             gameState = false;
+            board.classList.add('blur')
         }
         cardOne = '';
         cardTwo = '';
@@ -85,6 +90,13 @@ const compare = (firstCard, secondCard) => {
             failMessage.classList.remove('hidden');
             failMessage.classList.add('show');
             gameState = false;
+            moves.classList.remove('show');
+            moves.classList.add('hidden');
+            score.classList.remove('show');
+            score.classList.add('hidden');
+            startGameElement.style.display = "block";
+            board.classList.add('blur')
+
         }
         setTimeout(() => {
             cardTwo.classList.toggle('cardFront');
@@ -101,36 +113,31 @@ const compare = (firstCard, secondCard) => {
 
 
 const initialize = () => {
-    if (gameState === false) {
-        points = 0;
-        attempts = 6;
-        cardOne = '';
-        cardTwo = '';
-        gameState = true;
-        moves.classList.remove('hidden');
-        score.classList.remove('hidden');
-        moves.classList.add('show');
-        score.classList.add('show');
-        moves.innerHTML = `${attempts}/${maxAttempts} attempts remaining.`
-        score.innerHTML = `${points}/${winningScore} points scored.`
-        generateBoard();
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('click', play)
-        })
-    }
-}
-
-const reset = () => {
-    gameState = false;
+    points = 0;
+    attempts = 6;
+    cardOne = '';
+    cardTwo = '';
+    gameState = true;
     board.innerHTML = '';
-    winMessage.classList.remove('show');
-    failMessage.classList.remove('show');
+    moves.classList.remove('hidden');
+    score.classList.remove('hidden');
+    moves.classList.add('show');
+    score.classList.add('show');
+    board.classList.remove('blur');
     winMessage.classList.add('hidden');
     failMessage.classList.add('hidden');
-    initialize();
+    moves.innerHTML = `${attempts}/${maxAttempts} attempts remaining.`
+    score.innerHTML = `${points}/${winningScore} points scored.`
+    generateBoard();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', play)
+    })
 }
 
 /*----------- Event Listeners ----------*/
-startGameElement.addEventListener('click', initialize);
-resetGameElement.addEventListener('click', reset);
+// startGameElement.addEventListener('click', initialize);
+startGameElement.addEventListener('click', () => {
+    startGameElement.style.display = 'none';
+    initialize();
+})
