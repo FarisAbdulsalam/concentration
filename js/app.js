@@ -39,8 +39,8 @@ const generateBoard = () => {
     }
     let shuffled = shuffle(cardArr);
     shuffled.forEach(card => {
-        board.appendChild(card)
-    })
+        board.appendChild(card);
+    });
 }
 
 const play = (card) => {
@@ -80,7 +80,7 @@ const compare = (firstCard, secondCard) => {
             score.classList.add('hidden');
             startGameElement.style.display = "block";
             gameState = false;
-            board.classList.add('blur')
+            board.classList.add('blur');
         }
         cardOne = '';
         cardTwo = '';
@@ -95,7 +95,7 @@ const compare = (firstCard, secondCard) => {
             score.classList.remove('show');
             score.classList.add('hidden');
             startGameElement.style.display = "block";
-            board.classList.add('blur')
+            board.classList.add('blur');
 
         }
         setTimeout(() => {
@@ -131,12 +131,11 @@ const initialize = () => {
     generateBoard();
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
-        card.addEventListener('click', play)
-    })
+        card.addEventListener('click', play);
+    });
 }
 
 /*----------- Event Listeners ----------*/
-// startGameElement.addEventListener('click', initialize);
 startGameElement.addEventListener('click', () => {
     startGameElement.style.display = 'none';
     initialize();
