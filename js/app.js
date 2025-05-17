@@ -24,6 +24,16 @@ const playSound = () => {
     audio.play();
 }
 
+const winSound = () => {
+    const audio = new Audio('./soundEffects/woohoo.mp3')
+    audio.play();
+}
+
+const loseSound = () => {
+    const audio = new Audio('./soundEffects/sadTrombone.mp3');
+    audio.play();
+}
+
 const shuffle = (arr) => {
     return arr.sort(() => Math.random() - 0.5);
 }
@@ -87,6 +97,7 @@ const compare = (firstCard, secondCard) => {
             startGameElement.style.display = "block";
             gameState = false;
             board.classList.add('blur');
+            winSound();
         }
         cardOne = '';
         cardTwo = '';
@@ -102,7 +113,7 @@ const compare = (firstCard, secondCard) => {
             score.classList.add('hidden');
             startGameElement.style.display = "block";
             board.classList.add('blur');
-
+            loseSound();
         }
         setTimeout(() => {
             cardTwo.classList.toggle('cardFront');
