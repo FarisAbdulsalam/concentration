@@ -19,6 +19,11 @@ const winMessage = document.getElementById('winMessage');
 const failMessage = document.getElementById('failMessage');
 
 /*-------------- Functions -------------*/
+const playSound = () => {
+    const audio = new Audio('./js/cardflip.mp3');
+    audio.play();
+}
+
 const shuffle = (arr) => {
     return arr.sort(() => Math.random() - 0.5);
 }
@@ -50,6 +55,7 @@ const play = (card) => {
     if (cardOne === card.target || cardTwo === card.target) {
         return;
     }
+    playSound();
     if (cardOne === '') {
         cardOne = card.target;
         cardOne.classList.add('cardFront');
@@ -110,7 +116,6 @@ const compare = (firstCard, secondCard) => {
         }, 1000);
     }
 };
-
 
 const initialize = () => {
     points = 0;

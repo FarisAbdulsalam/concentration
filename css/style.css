@@ -45,7 +45,6 @@ body {
     background-position: center;
 }
 
-
 .card:hover {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(0, 255, 234, 0.9);
@@ -55,7 +54,6 @@ body {
     background-size: cover;
     background-position: center;
 }
-
 
 button {
     position: absolute;
