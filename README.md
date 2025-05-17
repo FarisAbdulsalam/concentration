@@ -1,6 +1,6 @@
 ![game showcase](./images/game.png)
 
-# [Click here to go to the game webpage](https://farisabdulsalam.github.io/concentration-memory-game/)
+# [Click here to go to the game webpage](https://farisabdulsalam.github.io/concentration)
 
 # What is Concentration?
 Concentration is a memory game where you have facedown cards with different artwork on them. The goal is to turn 2 face-up at a time and remembering where each artwork is in order to match it.
