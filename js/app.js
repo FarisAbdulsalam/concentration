@@ -20,7 +20,7 @@ const failMessage = document.getElementById('failMessage');
 
 /*-------------- Functions -------------*/
 const playSound = () => {
-    const audio = new Audio('./js/cardflip.mp3');
+    const audio = new Audio('./soundEffects/cardflip.mp3');
     audio.play();
 }
 
